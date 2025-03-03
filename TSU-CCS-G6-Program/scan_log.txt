@@ -1,0 +1,106 @@
+2025-02-27 16:11:25 - AFPSN: Unit: IT intern
+Name: Nicole Angel B. Manansala
+AFPSN: SN12345
+Age: 20
+Email: nicoleangelmanansala@gmail.com
+Attendee: sample-2
+CP: 0012345678 - Not Registered
+2025-02-27 16:16:38 - AFPSN: Unit: IT intern
+Name: Nicole Angel B. Manansala
+AFPSN: SN12345
+Age: 20
+Email: nicoleangelmanansala@gmail.com
+Attendee: sample-2
+CP: 0012345678 - Not Registered
+2025-02-27 16:18:00 - AFPSN: Unit: IT intern
+Name: Nicole Angel B. Manansala
+AFPSN: SN12345
+Age: 20
+Email: nicoleangelmanansala@gmail.com
+Attendee: sample-2
+CP: 0012345678 - Not Registered
+2025-02-27 16:20:34 - AFPSN: Unit: IT intern
+Name: Nicole Angel B. Manansala
+AFPSN: SN12345
+Age: 20
+Email: nicoleangelmanansala@gmail.com
+Attendee: sample-2
+CP: 0012345678 - Not Registered
+2025-02-27 16:22:29 - AFPSN: Unit: IT intern
+Name: Nicole Angel B. Manansala
+AFPSN: SN12345
+Age: 20
+Email: nicoleangelmanansala@gmail.com
+Attendee: sample-2
+CP: 0012345678 - Not Registered
+2025-02-27 16:26:07 - AFPSN: SN12345 - Registered
+2025-02-27 16:29:11 - AFPSN: SN12345 - Registered
+2025-02-27 16:37:37 - AFPSN: SN12345 - Registered
+2025-02-27 16:42:06 - AFPSN: samole - Not Registered
+2025-02-27 16:45:14 - AFPSN: sample1 - Registered
+2025-02-27 16:45:51 - AFPSN: sample1 - Registered
+2025-02-27 16:46:00 - AFPSN: samole - Not Registered
+2025-02-27 16:54:11 - AFPSN: sample1, Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-27 16:55:07 - AFPSN: sample1, Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-27 16:56:14 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-27 16:56:39 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 16:56:45 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-27 16:56:51 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 16:56:57 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 16:57:02 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 16:57:08 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:03:18 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:03:21 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:03:28 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:03:33 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:03:38 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-27 17:03:45 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:03:55 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:04:02 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-27 17:04:07 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-27 17:04:13 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-27 17:04:17 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:16:28 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:17:03 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:17:47 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:17:55 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:18:00 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:20:30 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:20:37 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:20:44 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:20:59 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:26:01 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 08:26:41 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:28:52 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:28:58 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:29:16 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:29:32 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:30:13 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:33:36 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 08:33:45 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:33:51 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:38:36 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:38:46 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 08:41:50 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 08:42:19 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:42:32 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:43:13 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:46:23 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 08:46:53 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:48:34 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:52:13 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:52:53 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:54:18 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 08:54:30 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 09:00:48 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 09:01:26 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 09:13:48 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 10:26:18 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 10:27:08 - Name: N/A, Unit: N/A, Rank: N/A, Status: Not Registered
+2025-02-28 10:53:21 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 10:54:46 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 10:55:38 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 10:55:53 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: , Status: Registered
+2025-02-28 10:56:45 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 11:21:47 - Name: Nicole Angel B. Manansala, Unit: IT intern, Rank: Civilian Employee, Status: Registered
+2025-02-28 11:34:29 - Name: Kurt Russel J. Remigio, Unit: IT intern, Rank: Civilian Employee, Status: Registered
