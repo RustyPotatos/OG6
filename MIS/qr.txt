@@ -1,0 +1,35 @@
+<?php
+$servername = "localhost";
+$usernamme = "Joslep101";
+$password = "JoslepRESORT*1001";
+$dbname = "tracom-proj-db";
+
+$conn = new mysqli($servername, $usernamme, $password, $dbname);
+
+if ($conn-> connect_error){
+    die("Connection Failed: ". $conn->connect_error);
+}
+
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM attendees WHERE id = $id";
+    $result = $conn->query($sql);
+
+    if($result->num_rows > 0){
+        $row = $result -> fetch_assoc();
+
+        $qrData = "Unit: {$row['unit_office']}\nName: {$row['name']}\nAFPSN: {$row['afpsn']}\nAge: {$row['age']}\nEmail: {$row['email']}\nAttendee: {$row['attendee']}\nCP: {$row['cpnum']}";
+        $qrCodeURL = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" . urlencode($qrData);
+
+        
+        $updateSQL = "UPDATE attendees SET qr_code = '$qrCodeURL' WHERE id =$id";
+        $conn->query($updateSQL);
+
+        header("Location: main.php?qr=$qrCodeURL");
+    }
+}
+
+$conn->close();
+
+
+?>
