@@ -2,8 +2,7 @@ import streamlit as st
 import mysql.connector
 import re
 from datetime import datetime
-import time
-import webbrowser  # To open scan_logs page
+import webbrowser  # To open scan logs page
 
 
 # **Database Connection**
@@ -29,15 +28,38 @@ def fetch_attendee_details(afpsn):
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM attendees WHERE afpsn = %s", (afpsn,))
     result = cursor.fetchone()
+    cursor.fetchall()  # Clear unread results
     cursor.close()
     conn.close()
     return result
 
 
-# **Log Scan Function**
+# **Check if Already Scanned Today**
+def is_already_scanned_today(afpsn):
+    conn = connect_db()
+    if not conn:
+        return False
+
+    cursor = conn.cursor()
+    today_date = datetime.now().strftime("%Y-%m-%d")  # Get today's date
+    query = "SELECT COUNT(*) FROM scan_logs WHERE afpsn = %s AND DATE(scan_time) = %s"
+    cursor.execute(query, (afpsn, today_date))
+    count = cursor.fetchone()[0]  # Get count of scans for today
+    cursor.close()
+    conn.close()
+
+    return count > 0  # Return True if already scanned today
+
+
+# **Log Scan Function with Duplicate Check**
 def log_scan(afpsn, name, unit, rank, status):
     if status != "Registered":
         return  # Skip logging for unregistered AFPSN
+
+    # **Check if already scanned today**
+    if is_already_scanned_today(afpsn):
+        st.warning(f"⚠️ Duplicate Scan Detected: AFPSN {afpsn} was already scanned today!")
+        return  # **Skip Logging**
 
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     conn = connect_db()
@@ -50,11 +72,12 @@ def log_scan(afpsn, name, unit, rank, status):
     conn.commit()
     cursor.close()
     conn.close()
+    st.success(f"✔ Scan Logged for {name} ({afpsn})")
 
 
 # **Extract AFPSN from QR Code**
 def extract_afpsn(scanned_text):
-    match = re.search(r"AFPSN[:\s]+([A-Za-z0-9-]+)", scanned_text, re.IGNORECASE)
+    match = re.search(r"\bAFPSN[:\s]*([A-Za-z0-9-]+)\b", scanned_text, re.IGNORECASE)
     return match.group(1).strip() if match else None
 
 
@@ -75,6 +98,11 @@ def clear_inputs():
     st.session_state["afpsn_to_search"] = ""  # Reset AFPSN to search
 
 
+# **Define clear_manual_input function**
+def clear_manual_input():
+    st.session_state["manual_afpsn"] = ""  # Reset the input field
+
+
 # **Streamlit UI**
 st.set_page_config(
     page_title="QR Code Scanner",
@@ -88,70 +116,74 @@ st.divider()
 # **QR Code Scanning Section**
 st.subheader("🔍 QR Code Scanner")
 
-# **Initialize Session State for QR Detection**
-if "qr_detected" not in st.session_state:
-    st.session_state["qr_detected"] = ""
-
-if "afpsn_to_search" not in st.session_state:
-    st.session_state["afpsn_to_search"] = ""
-
-if "last_qr_scan" not in st.session_state:
-    st.session_state["last_qr_scan"] = ""
-
-if "manual_afpsn" not in st.session_state:
-    st.session_state["manual_afpsn"] = ""
+# **Initialize Session State Variables**
+for key in ["qr_detected", "afpsn_to_search", "last_qr_scan", "manual_afpsn"]:
+    if key not in st.session_state:
+        st.session_state[key] = ""
 
 # **Define a Callback Function to Clear QR Code Scan Input**
 def clear_qr_input():
     st.session_state["qr_detected"] = ""  # Clear scanned QR data
     st.session_state["afpsn_to_search"] = ""  # Reset search AFPSN
 
-# **QR Scanner Output (Text Area)**
-new_qr_data = st.text_area("📸 Scan QR:", key="qr_detected",
-                           help="This field updates automatically when a QR code is scanned.")
 
-# **Clear Button Below Scan Output**
-st.button("🧹 Clear Scan", on_click=clear_qr_input)
+# **Create two columns for input and details display**
+col1, col2 = st.columns([1, 1])
 
+with col1:
+    # **QR Scanner Output (Text Input)**
+    new_qr_data = st.text_input("📸 Scan QR:", key="qr_detected",
+                                help="Press Enter after scanning the QR code.")
 
-# **Detect Change and Auto-Search**
-if st.session_state["qr_detected"] and st.session_state["qr_detected"] != st.session_state["last_qr_scan"]:
-    extracted_afpsn = extract_afpsn(st.session_state["qr_detected"])
+    # **Handle QR Scan Input**
+    if new_qr_data and new_qr_data != st.session_state["last_qr_scan"]:
+        afpsn_from_qr = extract_afpsn(new_qr_data)  # Extract AFPSN
+        if afpsn_from_qr:
+            st.session_state["afpsn_to_search"] = afpsn_from_qr
+            st.session_state["last_qr_scan"] = new_qr_data  # Store last scanned QR
 
-    if extracted_afpsn:
-        st.session_state["afpsn_to_search"] = extracted_afpsn
-        st.session_state["last_qr_scan"] = st.session_state["qr_detected"]  # Store last scanned value
-        time.sleep(1)  # Small delay to prevent race conditions
-        st.rerun()  # **Auto-refresh to trigger search**
+    # **Clear Button Below Scan Output**
+    st.button("🧹 Clear Scan", on_click=clear_qr_input)
 
-# **Manual AFPSN Input & Search Button**
-manual_afpsn = st.text_input("⌨️ Enter AFPSN Manually:", key="manual_afpsn")
-search_button_clicked = st.button("🔍 Search")
+    # **Manual AFPSN Input**
+    manual_afpsn = st.text_input("⌨️ Enter AFPSN Manually:", key="manual_afpsn")
 
-if search_button_clicked and manual_afpsn:
-    st.session_state["afpsn_to_search"] = manual_afpsn.strip()
+    # **Buttons (Search & Clear) in One Row**
+    col_btn1, col_btn2, col_btn3 = st.columns([1, 4, 1])
 
-# **If AFPSN is found (QR or Manual)**
-if st.session_state["afpsn_to_search"]:
-    afpsn_to_search = st.session_state["afpsn_to_search"]
-    name, unit, rank, status = check_afpsn(afpsn_to_search)
+    with col_btn1:
+        st.button("🧹 Clear", on_click=clear_manual_input)
 
-    # Log scan if registered
-    log_scan(afpsn_to_search, name, unit, rank, status)
+    with col_btn3:
+        search_button_clicked = st.button("🔍 Search")
 
-    # Display extracted AFPSN details
-    st.write(f"**AFPSN:** {afpsn_to_search}")
-    st.write(f"**Name:** {name}")
-    st.write(f"**Unit:** {unit}")
-    st.write(f"**Rank:** {rank}")
+    # **Handle Search Button Click**
+    if search_button_clicked and manual_afpsn:
+        st.session_state["afpsn_to_search"] = manual_afpsn.strip()
 
-    if status == "Registered":
-        st.success("✔ Registered")
-    else:
-        st.error("❌ Not Registered")
+with col2:
+    # **If AFPSN is found (QR or Manual)**
+    if st.session_state["afpsn_to_search"]:
+        afpsn_to_search = st.session_state["afpsn_to_search"]
+        name, unit, rank, status = check_afpsn(afpsn_to_search)
 
-    # **Clear input after verification**
-    st.button("✅ Done", on_click=clear_inputs)  # Button to clear inputs
+        # **Log scan if registered**
+        log_scan(afpsn_to_search, name, unit, rank, status)
+
+        # **Display extracted AFPSN details**
+        st.subheader("📄Details")
+        st.write(f"**AFPSN:** {afpsn_to_search}")
+        st.write(f"**Name:** {name}")
+        st.write(f"**Unit:** {unit}")
+        st.write(f"**Rank:** {rank}")
+
+        if status == "Registered":
+            st.success("✔ Registered")
+        else:
+            st.error("❌ Not Registered")
+
+        # **Clear input after verification**
+        st.button("✅ Done", on_click=clear_inputs)  # Button to clear inputs
 
 st.divider()
 
