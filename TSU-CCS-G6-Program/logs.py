@@ -7,7 +7,7 @@ import time
 def connect_db():
     try:
         return mysql.connector.connect(
-            host="localhost",
+            host="127.0.0.1",
             user="Joslep101",
             password="JoslepRESORT*1001",
             database="tracom-proj-db"
